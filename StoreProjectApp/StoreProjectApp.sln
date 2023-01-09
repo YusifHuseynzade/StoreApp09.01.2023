@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreProjectAPI", "StoreProjectAPI\StoreProjectAPI.csproj", "{73E2D1A2-53B2-430C-8108-3587719154D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreProjectAPI", "StoreProjectAPI\StoreProjectAPI.csproj", "{73E2D1A2-53B2-430C-8108-3587719154D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Data", "Store.Data\Store.Data.csproj", "{81572D5D-BACA-405E-943D-E06A6D0635EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Data", "Store.Data\Store.Data.csproj", "{81572D5D-BACA-405E-943D-E06A6D0635EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Core", "Store.Core\Store.Core.csproj", "{9E862A17-26FD-4C8D-8B12-52AF20C30B6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{81572D5D-BACA-405E-943D-E06A6D0635EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81572D5D-BACA-405E-943D-E06A6D0635EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81572D5D-BACA-405E-943D-E06A6D0635EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E862A17-26FD-4C8D-8B12-52AF20C30B6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E862A17-26FD-4C8D-8B12-52AF20C30B6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E862A17-26FD-4C8D-8B12-52AF20C30B6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E862A17-26FD-4C8D-8B12-52AF20C30B6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

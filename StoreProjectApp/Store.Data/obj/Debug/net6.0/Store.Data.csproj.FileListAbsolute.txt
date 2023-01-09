@@ -12,3 +12,6 @@ C:\Users\DELL\Desktop\StoreProjectApp\Store.Data\obj\Debug\net6.0\refint\Store.D
 C:\Users\DELL\Desktop\StoreProjectApp\Store.Data\obj\Debug\net6.0\Store.Data.pdb
 C:\Users\DELL\Desktop\StoreProjectApp\Store.Data\obj\Debug\net6.0\Store.Data.genruntimeconfig.cache
 C:\Users\DELL\Desktop\StoreProjectApp\Store.Data\obj\Debug\net6.0\ref\Store.Data.dll
+C:\Users\DELL\Desktop\StoreProjectApp\Store.Data\bin\Debug\net6.0\Store.Core.dll
+C:\Users\DELL\Desktop\StoreProjectApp\Store.Data\bin\Debug\net6.0\Store.Core.pdb
+C:\Users\DELL\Desktop\StoreProjectApp\Store.Data\obj\Debug\net6.0\Store.Data.csproj.CopyComplete
