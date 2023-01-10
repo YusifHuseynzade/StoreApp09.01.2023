@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "oBLHAX12SeN6FcQGvJeizFfIDtRJ8x3VNkkCq6m6icY=",
+  "Hash": "yEL2VFIPckkBx3+3rBwRUvtEIBvBO3ZJELRJ4bfsMzg=",
   "Source": "StoreProjectAPI",
   "BasePath": "_content/StoreProjectAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "StoreProjectAPI\\wwwroot",
+      "Source": "StoreProjectAPI",
+      "ContentRoot": "C:\\Users\\DELL\\Desktop\\StoreProjectApp\\StoreProjectAPI\\wwwroot\\",
+      "BasePath": "_content/StoreProjectAPI",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

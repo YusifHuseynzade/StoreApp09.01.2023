@@ -79,3 +79,6 @@ C:\Users\DELL\Desktop\StoreProjectApp\StoreProjectAPI\bin\Debug\net6.0\Microsoft
 C:\Users\DELL\Desktop\StoreProjectApp\StoreProjectAPI\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\DELL\Desktop\StoreProjectApp\StoreProjectAPI\bin\Debug\net6.0\Store.Core.dll
 C:\Users\DELL\Desktop\StoreProjectApp\StoreProjectAPI\bin\Debug\net6.0\Store.Core.pdb
+C:\Users\DELL\Desktop\StoreProjectApp\StoreProjectAPI\bin\Debug\net6.0\StoreProjectAPI.staticwebassets.runtime.json
+C:\Users\DELL\Desktop\StoreProjectApp\StoreProjectAPI\bin\Debug\net6.0\MicroElements.Swashbuckle.FluentValidation.dll
+C:\Users\DELL\Desktop\StoreProjectApp\StoreProjectAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

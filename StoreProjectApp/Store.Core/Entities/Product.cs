@@ -14,8 +14,7 @@ namespace Store.Core.Entities
         public decimal SalePrice { get; set; }
         public decimal CostPrice { get; set; }
         public decimal DiscountPercent { get; set; }
-       
-
+        public string Image { get; set; }
         public Category Category { get; set; }
     }
 }

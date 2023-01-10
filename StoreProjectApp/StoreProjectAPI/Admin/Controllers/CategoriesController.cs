@@ -4,10 +4,14 @@ using Microsoft.AspNetCore.Mvc;
 using StoreProjectAPI.Admin.Dtos.CategoryDtos;
 using Store.Core.Entities;
 using Store.Data.DAL;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace StoreProjectAPI.Admin.Controllers
 {
-    [Route("Admin/[controller]")]
+    [ApiExplorerSettings(GroupName = "admin")]
+    [Authorize(Roles = "SuperAdmin,Admin")]
+    [Route("admin/api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
     {

@@ -6,6 +6,7 @@ using StoreProjectAPI.Member.Dtos.CategoryDtos;
 
 namespace StoreProjectAPI.Member.Controllers
 {
+    [ApiExplorerSettings(GroupName = "user")]
     [Route("Member/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase

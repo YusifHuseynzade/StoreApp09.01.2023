@@ -7,6 +7,7 @@ using StoreProjectAPI.Member.Dtos.ProductDtos;
 
 namespace StoreProjectAPI.Member.Controllers
 {
+    [ApiExplorerSettings(GroupName = "user")]
     [Route("Member/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase

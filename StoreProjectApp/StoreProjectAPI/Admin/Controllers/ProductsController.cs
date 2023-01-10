@@ -5,24 +5,31 @@ using Microsoft.EntityFrameworkCore;
 using StoreProjectAPI.Admin.Dtos.ProductDtos;
 using Store.Core.Entities;
 using Store.Data.DAL;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
+using StoreProjectAPI.Helpers;
 
 namespace StoreProjectAPI.Admin.Controllers
 {
-    [Route("Admin/[controller]")]
+    [ApiExplorerSettings(GroupName = "admin")]
+    [Authorize(Roles = "SuperAdmin,Admin")]
+    [Route("admin/api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
         private readonly StoreDbContext _context;
         private readonly IMapper _mapper;
+        private readonly IWebHostEnvironment _env;
 
-        public ProductsController(StoreDbContext context,IMapper mapper)
+        public ProductsController(StoreDbContext context,IMapper mapper, IWebHostEnvironment env)
         {
             _context = context;
             _mapper = mapper;
+            _env = env;
         }
 
         [HttpPost("")]
-        public IActionResult Create(ProductPostDto postDto)
+        public IActionResult Create([FromForm] ProductPostDto postDto)
         {
             if (!_context.Categories.Any(x => x.Id == postDto.CategoryId))
                 return BadRequest(new { error = new { field = "CategoryId", message = "Catgory not found!" } });
@@ -32,6 +39,7 @@ namespace StoreProjectAPI.Admin.Controllers
         
 
             Product product = _mapper.Map<Product>(postDto);
+            product.Image = FileManager.Save(postDto.ImageFile, _env.WebRootPath, "uploads/products");
 
             _context.Products.Add(product);
             _context.SaveChanges();
@@ -70,7 +78,7 @@ namespace StoreProjectAPI.Admin.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Edit(int id,ProductPostDto postDto)
+        public IActionResult Edit(int id, [FromForm] ProductPostDto postDto)
         {
             Product product = _context.Products.FirstOrDefault(x => x.Id == id);
 
