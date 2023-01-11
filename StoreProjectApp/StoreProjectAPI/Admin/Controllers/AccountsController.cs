@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using StoreProjectAPI.Services;
 
 namespace StoreProjectAPI.Admin.Controllers
 {
@@ -19,12 +20,14 @@ namespace StoreProjectAPI.Admin.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _conf;
+        private readonly IJwtService _jwtService;
 
-        public AccountsController(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration conf)
+        public AccountsController(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration conf, IJwtService jwtService)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _conf = conf;
+            _jwtService = jwtService;
         }
 
         //[HttpGet("roles")]
@@ -47,35 +50,10 @@ namespace StoreProjectAPI.Admin.Controllers
 
             if (!await _userManager.CheckPasswordAsync(user, loginDto.Password))
                 return BadRequest();
-
-
-            List<Claim> claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name,user.UserName),
-                new Claim(ClaimTypes.NameIdentifier,user.Id),
-                new Claim("FullName",user.FullName),
-            };
-
             var roles = await _userManager.GetRolesAsync(user);
-            var roleClaims = roles.Select(x => new Claim(ClaimTypes.Role, x));
-            claims.AddRange(roleClaims);
 
-            string secret = _conf.GetSection("JWT:secret").Value;
 
-            var symmetricSecurityKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(secret));
-            var creds = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
-
-            JwtSecurityToken token = new JwtSecurityToken(
-                claims: claims,
-                signingCredentials: creds,
-                expires: DateTime.UtcNow.AddHours(8),
-                issuer: _conf.GetSection("JWT:issuer").Value,
-                audience: _conf.GetSection("JWT:audience").Value
-                );
-
-            string tokenStr = new JwtSecurityTokenHandler().WriteToken(token);
-
-            return Ok(new { token = tokenStr });
+            return Ok(new { token = _jwtService.GenerateToken(user, roles, _conf) });
         }
 
         [HttpPost("")]

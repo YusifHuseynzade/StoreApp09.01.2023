@@ -11,6 +11,9 @@ using Store.Core.Entities;
 using Store.Data.DAL;
 using Swashbuckle.AspNetCore.Swagger;
 using StoreProjectAPI.Member.Profiles;
+using Store.Core.Repositories;
+using Store.Data.Repositories;
+using StoreProjectAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +26,10 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 {
     opt.Password.RequireNonAlphanumeric = false;
 }).AddDefaultTokenProviders().AddEntityFrameworkStores<StoreDbContext>();
+
+builder.Services.AddScoped<IJwtService, JwtService>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(opt =>
